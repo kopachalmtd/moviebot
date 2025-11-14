@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import bcrypt from "bcryptjs";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -12,11 +11,12 @@ export default function Signup() {
 
     const res = await fetch("/api/signup", {
       method: "POST",
-      body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
     });
 
     if (res.ok) router.push("/login");
+    else alert("Signup failed. User may already exist.");
   };
 
   return (
