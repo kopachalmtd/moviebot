@@ -20,8 +20,8 @@ export default function handler(req, res) {
       id: Date.now().toString(),
       username,
       password: bcrypt.hashSync(password, 10),
-      subscriptionEnd: null, // For subscription
-      moviesWatched: {}     // For per-movie tracking
+      subscriptionEnd: null,
+      moviesWatched: {}
     };
 
     users.push(newUser);
