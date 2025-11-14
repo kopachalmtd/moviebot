@@ -1,18 +1,53 @@
-// pages/index.js
 import Link from "next/link";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const movies = [
+    {
+      id: 1,
+      title: "Movie 1",
+      poster: "/poster1.jpg",
+    },
+    {
+      id: 2,
+      title: "Movie 2",
+      poster: "/poster2.jpg",
+    },
+  ];
+
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui, sans-serif" }}>
-      <h1 style={{ fontSize: 28 }}>Movie Store</h1>
-      <p style={{ marginTop: 6 }}>Buy movies and get them delivered on Telegram.</p>
-      <div style={{ marginTop: 20 }}>
+    <div className={styles.container}>
+      <header className={styles.nav}>
+        <h1 className={styles.logo}>MovieBox</h1>
+
         <Link href="/movies">
-          <a style={{ display: "inline-block", padding: "10px 14px", background: "#0066ff", color: "white", borderRadius: 8, textDecoration: "none" }}>
-            Browse Movies
-          </a>
+          <button className={styles.btnPrimary}>Browse Movies</button>
         </Link>
-      </div>
-    </main>
+      </header>
+
+      <section className={styles.hero}>
+        <h2 className={styles.heroTitle}>Unlimited Movies</h2>
+        <p className={styles.heroSubtitle}>Pay with M-Pesa and start watching instantly.</p>
+
+        <Link href="/movies">
+          <button className={styles.heroButton}>Start Watching</button>
+        </Link>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Trending</h2>
+
+        <div className={styles.grid}>
+          {movies.map((m) => (
+            <Link key={m.id} href={`/movies/${m.id}`}>
+              <div className={styles.movieCard}>
+                <img src={m.poster} className={styles.poster} />
+                <div className={styles.movieTitle}>{m.title}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
