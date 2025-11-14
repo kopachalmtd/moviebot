@@ -15,7 +15,7 @@ export default function Login() {
       password,
     });
 
-    if (!res.error) router.push("/"); // Redirect home on success
+    if (!res.error) router.push("/"); // redirect to homepage
     else alert("Invalid credentials");
   };
 
