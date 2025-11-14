@@ -1,5 +1,12 @@
-# movieBot (Vercel)
+# Moviebot (Vercel + PayHero + Telegram)
 
-Simple webhook bot: /pay <amount> starts a PayHero payment, PayHero calls back to api/payhero/callback.
+## Features
+- Next.js website for selling movies
+- PayHero MPesa STK push payments
+- Telegram auto-delivery using FILE IDs
+- Posters hosted in /public
+- PayHero webhook callback for payment confirmation
 
-Set environment variables in Vercel project settings or locally in .env.local.
+## Setup
+
+### 1. Install
